@@ -1,0 +1,5 @@
+type init-qfp-sh, domain;
+type init-qfp-sh_exec, vendor_file_type, exec_type, file_type;
+init_daemon_domain(init-qfp-sh)
+
+domain_auto_trans(init, init-qfp-sh_exec, init-qfp-sh)

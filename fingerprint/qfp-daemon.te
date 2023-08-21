@@ -1,0 +1,42 @@
+# Allow qfp-daemon to act as AIDL service.
+type qfp-daemon, domain;
+type qfp-daemon_exec, exec_type, vendor_file_type, file_type;
+hal_server_domain(qfp-daemon, hal_fingerprint)
+init_daemon_domain(qfp-daemon)
+
+# Permissions to /data/vendor/misc/qti_fp and make files.
+type vendor_qfp-daemon_data_file, file_type, data_file_type;
+allow qfp-daemon vendor_qfp-daemon_data_file:dir { rw_dir_perms setattr create_dir_perms search };
+allow qfp-daemon vendor_qfp-daemon_data_file:file create_file_perms;
+
+# Permissions to read system properties.
+allow qfp-daemon property_socket:sock_file write;
+
+# Permissions to write to /dev/qbt_fd and /dev/qbt_ipc
+type vendor_qbt_device, dev_type;
+allow qfp-daemon vendor_qbt_device:chr_file rw_file_perms;
+
+# /vendor/data read permissions for storing factory test data.
+type qfp_vendor_data_file, file_type, data_file_type;
+allow qfp-daemon qfp_vendor_data_file:dir r_dir_perms;
+
+# Permissions to create directory at /vendor/persist/qti_fp and make a file.
+type vendor_persist_qti_fp_file, file_type, vendor_persist_type;
+allow qfp-daemon vendor_persist_qti_fp_file:dir r_dir_perms;
+allow qfp-daemon vendor_persist_qti_fp_file:file r_file_perms;
+
+# Permissions to wake device.
+allow qfp-daemon self:capability2 { block_suspend wake_alarm };
+
+# Register to hwbinder for HIDL and binder for AIDL.
+hwbinder_use(qfp-daemon)
+binder_use(qfp-daemon)
+
+# Add hwservice for IQti extension HIDL.
+type qfp_hal_fingerprint_hwservice, hwservice_manager_type;
+add_hwservice(qfp-daemon, qfp_hal_fingerprint_hwservice);
+
+allow hal_fingerprint qfp_hal_fingerprint_hwservice:hwservice_manager find;
+
+allow platform_app qfp-daemon:binder { call transfer };
+allow platform_app qfp_hal_fingerprint_hwservice:hwservice_manager find;
