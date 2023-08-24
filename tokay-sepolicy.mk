@@ -3,3 +3,6 @@ BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/tokay
 
 # UDFPS sepolicy.
 BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/fingerprint
+
+# GPS sepolicy
+BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/gnss
