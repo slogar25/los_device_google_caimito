@@ -6,3 +6,6 @@ BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/fingerprint
 
 # GPS sepolicy
 BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/gnss
+
+#Fingerprint
+BOARD_SEPOLICY_DIRS += device/google/caimito-sepolicy/fingerprint_capacitance
