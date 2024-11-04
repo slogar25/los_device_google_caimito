@@ -28,8 +28,8 @@ ifdef RELEASE_KERNEL_KOMODO_DIR
 TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_KOMODO_DIR)
 TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_KOMODO_DIR)/kernel-headers
 else
-TARGET_KERNEL_DIR ?= device/google/caimito-kernels/6.1/24D1
-TARGET_BOARD_KERNEL_HEADERS ?= device/google/caimito-kernels/6.1/24D1/kernel-headers
+TARGET_KERNEL_DIR ?= device/google/caimito-kernels/6.1/24Q3-12157876
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/caimito-kernels/6.1/24Q3-12157876/kernel-headers
 endif
 
 LOCAL_PATH := device/google/caimito
