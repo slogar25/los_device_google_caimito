@@ -6,7 +6,7 @@
 
 $(call inherit-product, $(DEVICE_PATH)/device-lineage.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/$(DEVICE_CODENAME)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/$(DEVICE_CODENAME)/overlay-everest
 
 PRODUCT_PACKAGES += \
     PixelDisplayServiceOverlayKomodo
