@@ -21,6 +21,18 @@ PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 9 Pro XL
 PRODUCT_NAME := lineage_$(DEVICE_CODENAME)
 
+# Banner
+RISING_MAINTAINER=Slogar25
+
+# Rising Stuff
+TARGET_ENABLE_BLUR := true
+PRODUCT_NO_CAMERA := true
+
+# GMS
+WITH_GMS := true
+TARGET_SUPPORTS_QUICK_TAP := true
+RELEASE_PIXEL_2025_ENABLED := true
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2992
 TARGET_SCREEN_WIDTH := 1344
@@ -28,6 +40,8 @@ TARGET_SCREEN_WIDTH := 1344
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="komodo-user 16 BP2A.250705.008 13578956 release-keys" \
     BuildFingerprint=google/komodo/komodo:16/BP2A.250705.008/13578956:user/release-keys \
-    DeviceProduct=$(DEVICE_CODENAME)
+    DeviceProduct=$(DEVICE_CODENAME) \
+	RisingChipset="Google Tensor 4" \
+	RisingMaintainer="Slogar25"
 
 $(call inherit-product, $(VENDOR_PATH)/$(DEVICE_CODENAME)-vendor.mk)
